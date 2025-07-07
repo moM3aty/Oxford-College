@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Oxford College</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="shortcut icon" href="~/images/logo.png" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center g-2" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.png" alt="Logo" height="60">
+                <span>Oxford</span> College
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto d-flex gap-3 align-items-center">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index" asp-fragment="about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index" asp-fragment="services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="agencies">Agencies</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="certificates">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="major">Major</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index" asp-fragment="team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="blog">Blog</a></li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary btn-sm" asp-controller="CertificatesAdmin" asp-action="Index">Admin Panel</a>
+                        </li>
+                        <li class="nav-item">
+                            <form asp-controller="Account" asp-action="Logout" method="post">
+                                <button type="submit" class="btn btn-outline-danger btn-sm">Logout</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-primary btn-sm" asp-controller="Account" asp-action="Login">Admin Login</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main role="main" class="py-5">
+        @RenderBody()
+    </main>
+
+    <!-- Main Footer from the main layout -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-6">
+                    <h2 class="h3">Oxford college</h2>
+                    <p class="text-white-50">Believe in yourself and you will be unstoppable</p>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="h5 fw-bold mb-3">COMPANY INFO</h2>
+                    <ul class="list-unstyled d-lg-flex flex-wrap gap-3">
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="Index" class="text-decoration-none">Home</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="Index" asp-fragment="about" class="text-decoration-none">About Us</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="Index" asp-fragment="services" class="text-decoration-none">Services</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="agencies" class="text-decoration-none">Agencies</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="certificates" class="text-decoration-none">Certificates</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="major" class="text-decoration-none">Major</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="Index" asp-fragment="team" class="text-decoration-none">Team</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="blog" class="text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-light">
+            <div class="text-center small text-white-50">
+                Copyright © 2025 Oxford. All Rights Reserved.
+            </div>
+            <div class="text-center small text-white-50 mt-4">
+                Made with <a aria-label="gwt facebook" href="https://www.facebook.com/profile.php?id=100090592885243&mibextid=ZbWKwL" class="gwt">GWT</a> Company
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+    <div class="fixed-contact-buttons"><a href="#" target="_blank" class="whatsapp-button"><i class="fab fa-whatsapp"></i></a></div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

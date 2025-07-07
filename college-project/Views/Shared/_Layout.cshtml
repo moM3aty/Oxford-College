@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oxford College - Empowering students with knowledge, confidence, and excellence.">
+    <meta name="keywords" content="Oxford College, education, learning, university, courses">
+    <meta name="author" content="Oxford College">
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="shortcut icon" href="~/images/logo.png" type="image/x-icon">
+    <title>Oxford College</title>
+
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100" tabindex="0">
+    <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center g-2" asp-controller="Home" asp-action="Index" aria-label="Oxford College logo">
+                <img src="~/images/logo.png" alt="Logo" height="60">
+                <span>Oxford</span> College
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ms-auto d-flex gap-3">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="agencies">Agencies</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="certificates">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="major">Major</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header id="home">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('/images/slider1.jpg');">
+                    <div class="carousel-caption text-white">
+                        <span class="carousel-span">Oxford College</span>
+                        <h1>Professional doctorate programs</h1>
+                        <p>Believe in yourself and you will be unstoppable</p>
+                        <a href="#services" aria-label="Know more services" class="btn">Know More</a>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('/images/slider2.jpg');">
+                    <div class="carousel-caption text-white">
+                        <span class="carousel-span">Oxford College</span>
+                        <h1>Training Courses</h1>
+                        <p>Believe in yourself and you will be unstoppable</p>
+                        <a href="#services" aria-label="Know more services" class="btn">Know More</a>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('/images/slider3.jpg');">
+                    <div class="carousel-caption text-white">
+                        <span class="carousel-span">Oxford College</span>
+                        <h1>Professional master programs</h1>
+                        <p>Believe in yourself and you will be unstoppable</p>
+                        <a href="#services" aria-label="Know more services" class="btn">Know More</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+        <div class="info-boxes d-flex text-white">
+            <div class="info-box box1"><div class="overlay"><i class="fas fa-award fa-2x mb-3"></i><h2 class="h5">Experience Degrees</h2><p>Completely Accredited</p></div></div>
+            <div class="info-box box2"><div class="overlay"><i class="fas fa-certificate fa-2x mb-3"></i><h2 class="h5">Earn Credentials</h2><p>Receive accredited recognition.</p></div></div>
+            <div class="info-box box3"><div class="overlay"><i class="fas fa-globe fa-2x mb-3"></i><h2 class="h5">Global Learning</h2><p>Offers classroom and online study programs.</p></div></div>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-6">
+                    <h2 class="h3">Oxford college</h2>
+                    <p class="text-white-50">Believe in yourself and you will be unstoppable</p>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="h5 fw-bold mb-3">COMPANY INFO</h2>
+                    <!-- ✅ FIX: Footer links now use asp-controller and asp-action for correct routing -->
+                    <ul class="list-unstyled d-lg-flex flex-wrap gap-3">
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="Index" class="text-decoration-none">Home</a></li>
+                        <li class="mb-3 mb-lg-0"><a href="#about" class="text-decoration-none">About Us</a></li>
+                        <li class="mb-3 mb-lg-0"><a href="#services" class="text-decoration-none">Services</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="agencies" class="text-decoration-none">Agencies</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="certificates" class="text-decoration-none">Certificates</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="major" class="text-decoration-none">Major</a></li>
+                        <li class="mb-3 mb-lg-0"><a href="#team" class="text-decoration-none">Team</a></li>
+                        <li class="mb-3 mb-lg-0"><a asp-controller="Home" asp-action="blog" class="text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-light">
+            <div class="text-center small text-white-50">
+                Copyright © 2025 Oxford. All Rights Reserved.
+            </div>
+            <div class="text-center small text-white-50 mt-4">
+                Made with <a aria-label="gwt facebook" href="https://www.facebook.com/profile.php?id=100090592885243&mibextid=ZbWKwL" class="gwt">GWT</a> Company
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+    <div class="fixed-contact-buttons"><a href="#" target="_blank" class="whatsapp-button"><i class="fab fa-whatsapp"></i></a></div>
+
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="~/js/main.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

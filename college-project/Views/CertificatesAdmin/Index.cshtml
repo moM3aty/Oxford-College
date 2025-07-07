@@ -1,0 +1,55 @@
+﻿@model IEnumerable<college_project.Models.Certificate>
+
+@{
+    ViewData["Title"] = "Manage Certificates";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4">
+    <h1>Manage Certificates</h1>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <form asp-action="Index" method="get">
+                <div class="input-group">
+                    <input type="text" name="SearchString" class="form-control" placeholder="Find by Serial Number..." value="@ViewData["CurrentFilter"]">
+                    <button type="submit" class="btn btn-outline-primary">Search</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 text-end">
+            <a asp-area="Admin" asp-controller="CertificatesAdmin" asp-action="Create" class="btn btn-primary">Add New Certificate</a>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Serial Number</th>
+                <th>Certificate Preview</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.SerialNumber)</td>
+                    <td>
+                        <img src="@item.CertificateImagePath" style="max-width: 200px; height: auto;" alt="Certificate" />
+                    </td>
+                    <td>
+                        <a  asp-controller="CertificatesAdmin" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    

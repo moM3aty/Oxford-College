@@ -1,0 +1,35 @@
+﻿@model college_project.Models.Certificate
+
+@{
+    ViewData["Title"] = "Add New Certificate";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-5">
+    <h1>Add New Certificate</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-controller="CertificatesAdmin" asp-action="Create" enctype="multipart/form-data" method="post">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group mb-3">
+                    <label asp-for="SerialNumber" class="control-label"></label>
+                    <input asp-for="SerialNumber" class="form-control" />
+                    <span asp-validation-for="SerialNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="certificateImage" class="control-label">Certificate Image</label>
+                    <input name="certificateImage" type="file" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

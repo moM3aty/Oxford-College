@@ -1,0 +1,52 @@
+﻿<section class="section-padding certificates" id="certificates">
+    <div class="container">
+        <h2 class="text-center mb-2 title fst-italic">Certificates</h2>
+        <p class="text-muted text-center">Please enter your Serial Number to view your certificate.</p>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <form id="searchForm" class="mt-3" onsubmit="return false;">
+                    <div>
+                        <input type="search" placeholder="Search by Serial Number" class="search-input" id="searchInput">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-5 justify-content-center">
+            <div class="col-lg-6 text-center" id="resultContainer">
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.getElementById("searchInput").addEventListener("input", async function () {
+        const serial = this.value.trim();
+    const certificateDisplay = document.getElementById("resultContainer");
+
+        if (serial.length === 0) {
+            certificateDisplay.innerHTML = "";
+            return;
+        }
+
+        try {
+            const response = await fetch(`/Search?serial=${encodeURIComponent(serial)}`);
+            const result = await response.json();
+
+            if (result.success) {
+                certificateDisplay.innerHTML = `
+                    <img src="${result.imagePath}" class="img-fluid rounded shadow animate__animated animate__fadeIn" style="cursor: pointer;" alt="Certificate" onclick="showPopup('${result.imagePath}')" />
+                `;
+            } else {
+                certificateDisplay.innerHTML = `<p class="text-danger">No certificate found.</p>`;
+            }
+        } catch (error) {
+            certificateDisplay.innerHTML = `<p class="text-danger">An error occurred while searching. Try again.</p>`;
+        }
+    });
+
+    function showPopup(imagePath) {
+        const popup = window.open("", "_blank");
+        popup.document.write(`<img src="${imagePath}" style="width: 100%;" />`);
+    }
+</script>
