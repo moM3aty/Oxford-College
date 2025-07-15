@@ -5,31 +5,100 @@
     Layout = "_AdminLayout";
 }
 
-<div class="container mt-5">
-    <h1>Add New Certificate</h1>
-    <hr />
-    <div class="row">
-        <div class="col-md-6">
-            <form asp-controller="CertificatesAdmin" asp-action="Create" enctype="multipart/form-data" method="post">
-
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                <div class="form-group mb-3">
-                    <label asp-for="SerialNumber" class="control-label"></label>
-                    <input asp-for="SerialNumber" class="form-control" />
-                    <span asp-validation-for="SerialNumber" class="text-danger"></span>
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="certificateImage" class="control-label">Certificate Image</label>
-                    <input name="certificateImage" type="file" class="form-control" required />
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
-                </div>
-            </form>
-        </div>
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="page-header mb-4">
+        <h1 class="h2 mb-0">Add New Certificate</h1>
     </div>
+
+    <form asp-controller="CertificatesAdmin" asp-action="Create" enctype="multipart/form-data" method="post">
+        <div class="row justify-content-center">
+            <div class="col-lg-7" data-aos="fade-up">
+                <div class="card shadow-sm">
+                    <div class="card-header py-3">
+                        <h5 class="mb-0">Certificate Details</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                        <div class="mb-4">
+                            <label asp-for="SerialNumber" class="form-label fs-6 fw-bold"></label>
+                            <input asp-for="SerialNumber" class="form-control form-control-lg" placeholder="Serial Number" />
+                            <span asp-validation-for="SerialNumber" class="text-danger"></span>
+                        </div>
+
+                        <div>
+                            <label for="certificateImage" class="form-label fs-6 fw-bold">Certificate Image</label>
+                            <div class="image-preview-box" id="imagePreviewContainer">
+                                <div id="previewText">
+                                    <i class="bi bi-cloud-arrow-up fs-1"></i>
+                                    <p class="mt-2 mb-0">Drag & drop or click to upload</p>
+                                </div>
+                                <img id="imagePreview" src="#" alt="Image Preview" class="d-none" width="400" />
+                            </div>
+                            <input name="certificateImage" id="certificateImage" type="file" class="d-none" required accept="image/*" />
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary px-4">
+                            <i class="bi bi-check-circle-fill me-2"></i>Create Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageInput = document.getElementById('certificateImage');
+            const previewContainer = document.getElementById('imagePreviewContainer');
+            const imagePreview = document.getElementById('imagePreview');
+            const previewText = document.getElementById('previewText');
+
+            previewContainer.addEventListener('click', () => imageInput.click());
+
+            imageInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.classList.remove('d-none');
+                        previewText.classList.add('d-none');
+                        previewContainer.classList.add('has-image');
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            previewContainer.addEventListener('dragover', (event) => {
+                event.preventDefault();
+                previewContainer.style.borderColor = 'var(--bs-primary)';
+            });
+
+            previewContainer.addEventListener('dragleave', (event) => {
+                event.preventDefault();
+                previewContainer.style.borderColor = 'var(--border-color)';
+            });
+
+            previewContainer.addEventListener('drop', (event) => {
+                event.preventDefault();
+                previewContainer.style.borderColor = 'var(--border-color)';
+                const files = event.dataTransfer.files;
+                if (files.length > 0) {
+                    imageInput.files = files;
+                    const changeEvent = new Event('change');
+                    imageInput.dispatchEvent(changeEvent);
+                }
+            });
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

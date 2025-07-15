@@ -5,51 +5,121 @@
     Layout = "_AdminLayout";
 }
 
-<div class="container mt-4">
-    <h1>Manage Certificates</h1>
-
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <form asp-action="Index" method="get">
-                <div class="input-group">
-                    <input type="text" name="SearchString" class="form-control" placeholder="Find by Serial Number..." value="@ViewData["CurrentFilter"]">
-                    <button type="submit" class="btn btn-outline-primary">Search</button>
-                    <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
-                </div>
-            </form>
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4 page-header">
+        <div class="d-flex align-items-center">
+            <h1 class="h2 mb-0">Manage Certificates</h1>
+            <span class="certificate-count-badge">@Model.Count()</span>
         </div>
-        <div class="col-md-6 text-end">
-            <a asp-area="Admin" asp-controller="CertificatesAdmin" asp-action="Create" class="btn btn-primary">Add New Certificate</a>
+        <a asp-controller="CertificatesAdmin" asp-action="Create" class="btn btn-primary shadow-sm px-4 py-2">
+            <i class="bi bi-plus-circle-fill me-2"></i>Add New Certificate
+        </a>
+    </div>
+
+    <!-- Success Message -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Search Bar -->
+    <div class="card mb-4 search-card">
+        <div class="card-body">
+            <form asp-action="Index" method="get" class="d-flex align-items-center">
+                <i class="bi bi-search fs-5 me-3 text-muted"></i>
+                <input type="text" name="SearchString" class="form-control me-2 border-0" placeholder="Search by Serial Number..." value="@ViewData["CurrentFilter"]">
+                <button type="submit" class="btn btn-light">Search</button>
+                <a asp-action="Index" class="btn btn-light ms-2" title="Clear Search"><i class="bi bi-arrow-clockwise"></i></a>
+            </form>
         </div>
     </div>
 
-    @if (TempData["SuccessMessage"] != null)
+    <!-- Certificate Grid -->
+    @if (Model.Any())
     {
-        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
-    }
-
-    <table class="table table-bordered table-striped">
-        <thead class="table-light">
-            <tr>
-                <th>Serial Number</th>
-                <th>Certificate Preview</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+        <div class="certificate-grid">
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.SerialNumber)</td>
-                    <td>
-                        <img src="@item.CertificateImagePath" style="max-width: 200px; height: auto;" alt="Certificate" />
-                    </td>
-                    <td>
-                        <a  asp-controller="CertificatesAdmin" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
-                </tr>
+                <div class="certificate-card" data-aos="fade-up">
+                    <a href="@item.CertificateImagePath" target="_blank" title="Click to view full image">
+                        <div class="card-img-container">
+                            <img src="@item.CertificateImagePath" class="card-img-top" alt="Certificate Preview"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/eee/ccc?text=Image+Not+Found';">
+                            <div class="overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                        </div>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Serial Number</h5>
+                        <p class="serial-number">@item.SerialNumber</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal" data-cert-id="@item.Id" data-cert-serial="@item.SerialNumber">
+                            <i class="bi bi-trash3-fill me-1"></i> Delete
+                        </button>
+                    </div>
+                </div>
             }
-        </tbody>
-    </table>
+        </div>
+    }
+    else
+    {
+        <!-- Placeholder for when no certificates are found -->
+        <div class="no-certificates-placeholder" data-aos="fade-up">
+            <i class="bi bi-journal-x"></i>
+            <p class="message">No certificates found.</p>
+            <a asp-action="Create" class="btn btn-primary mt-3">Add the first one now!</a>
+        </div>
+    }
 </div>
-    
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <i class="bi bi-exclamation-triangle-fill text-danger" style="font-size: 3rem;"></i>
+                <p class="mt-3 fs-5">Are you sure you want to delete the certificate with serial number:</p>
+                <p><strong id="serialNumberText" class="text-primary fs-4"></strong>?</p>
+                <p class="text-muted small">This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <form asp-action="Delete" method="post" id="deleteForm">
+                    <input type="hidden" name="id" id="certificateIdToDelete" />
+                    @Html.AntiForgeryToken()
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger px-4">Yes, Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteModal = document.getElementById('deleteModal');
+            if (deleteModal) {
+                deleteModal.addEventListener('show.bs.modal', function (event) {
+                    const button = event.relatedTarget;
+                    const certificateId = button.getAttribute('data-cert-id');
+                    const certificateSerial = button.getAttribute('data-cert-serial');
+
+                    const modalSerialNumberText = deleteModal.querySelector('#serialNumberText');
+                    const hiddenInputId = deleteModal.querySelector('#certificateIdToDelete');
+
+                    modalSerialNumberText.textContent = certificateSerial;
+                    hiddenInputId.value = certificateId;
+                });
+            }
+        });
+    </script>
+}
