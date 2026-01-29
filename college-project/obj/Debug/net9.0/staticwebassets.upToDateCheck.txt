@@ -1,6 +1,7 @@
 wwwroot\css\all.min.css
 wwwroot\css\bootstrap.min.css
 wwwroot\css\main.css
+wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\box1.jpg
 wwwroot\images\box2.jpg
@@ -27,6 +28,7 @@ wwwroot\images\university.jpg
 wwwroot\images\USA.jpg
 wwwroot\js\bootstrap.bundle.min.js
 wwwroot\js\main.js
+wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -87,12 +89,6 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\uploads\certificates\103f611d-7e57-451b-978c-6ec92a848bec.jpeg
-wwwroot\uploads\certificates\127b7705-1598-4521-88b3-4f060c133adf.jpeg
-wwwroot\uploads\certificates\429195f4-d2f9-423e-9f5c-c02d358a96a3.jpeg
-wwwroot\uploads\certificates\823e39b5-5892-4f8f-a60b-2d3bba76d86b.jpeg
-wwwroot\uploads\certificates\99189d06-acee-44b5-9b85-14047f77b9fc.jpeg
-wwwroot\uploads\certificates\b252cc00-757c-4bc3-84be-8bc6d0e5b04a.jpeg
 wwwroot\webfonts\fa-brands-400.ttf
 wwwroot\webfonts\fa-brands-400.woff2
 wwwroot\webfonts\fa-regular-400.ttf
@@ -101,72 +97,74 @@ wwwroot\webfonts\fa-solid-900.ttf
 wwwroot\webfonts\fa-solid-900.woff2
 wwwroot\webfonts\fa-v4compatibility.ttf
 wwwroot\webfonts\fa-v4compatibility.woff2
-wwwroot\css\site.css
-wwwroot\js\site.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\css\all.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\css\bootstrap.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\css\main.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\favicon.ico
-E:\Developer\Github\Oxford-College\college-project\wwwroot\js\bootstrap.bundle.min.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\js\main.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery-validation\dist\additional-methods.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery-validation\dist\jquery.validate.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery-validation\LICENSE.md
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.min.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.min.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.slim.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.slim.min.js
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.slim.min.map
-E:\Developer\Github\Oxford-College\college-project\wwwroot\lib\jquery\LICENSE.txt
-E:\Developer\Github\Oxford-College\college-project\wwwroot\css\site.css
-E:\Developer\Github\Oxford-College\college-project\wwwroot\js\site.js
+wwwroot\css\registration-print.css
+wwwroot\css\registration.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\css\all.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\css\bootstrap.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\css\main.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\css\site.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\favicon.ico
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\js\bootstrap.bundle.min.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\js\main.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\js\site.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery-validation\dist\additional-methods.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery-validation\LICENSE.md
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.min.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.min.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.slim.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.slim.min.js
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery\dist\jquery.slim.min.map
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\css\registration-print.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Oxford-College\college-project\wwwroot\css\registration.css

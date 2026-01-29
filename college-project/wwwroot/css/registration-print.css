@@ -1,0 +1,54 @@
+﻿/* Print-specific styles */
+@media print {
+    /* Hide unnecessary elements */
+    .no-print,
+    header,
+    footer,
+    .navbar,
+    .btn,
+    .back-to-top,
+    .fixed-contact-buttons {
+        display: none !important;
+    }
+
+    body {
+        background-color: #fff !important;
+        color: #000 !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    .card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        margin-bottom: 20px !important;
+        break-inside: avoid;
+    }
+
+    .card-header {
+        background-color: #f0f0f0 !important;
+        color: #000 !important;
+        border-bottom: 2px solid #000 !important;
+    }
+
+    .text-primary {
+        color: #000 !important;
+    }
+
+    .badge {
+        border: 1px solid #000;
+        color: #000 !important;
+        background: transparent !important;
+    }
+
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    /* Ensure full page visibility */
+    .container-fluid {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}

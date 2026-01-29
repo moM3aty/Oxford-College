@@ -21,7 +21,7 @@ namespace college_project.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.UserName == "admin" && model.Password == "Admin@123")
+                if (model.UserName == "admin@uk" && model.Password == "Admin@123")
                 {
                     var claims = new[] { new Claim(ClaimTypes.Name, model.UserName) };
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

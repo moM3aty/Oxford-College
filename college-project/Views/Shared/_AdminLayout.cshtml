@@ -26,13 +26,32 @@
                     <img src="~/images/logo.png" alt="Logo" height="40">
                     <span class="ms-2 fw-bold" style="color: var(--text-heading);">Admin Panel</span>
                 </a>
-                <div class="ms-auto d-flex align-items-center">
-                    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary me-2">Back to Site</a>
-                    <form asp-controller="Account" asp-action="Logout" method="post">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="bi bi-box-arrow-right me-1"></i>Logout
-                        </button>
-                    </form>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="adminNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-4">
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold @(ViewContext.RouteData.Values["Controller"].ToString() == "CertificatesAdmin" ? "text-primary" : "text-dark")"
+                               asp-controller="CertificatesAdmin" asp-action="Index">
+                                <i class="bi bi-award me-1"></i> Certificates
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold @(ViewContext.RouteData.Values["Controller"].ToString() == "Registration" ? "text-primary" : "text-dark")"
+                               asp-controller="Registration" asp-action="Index">
+                                <i class="bi bi-people me-1"></i> Enrollments
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center gap-2">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">Back to Site</a>
+                        <form asp-controller="Account" asp-action="Logout" method="post" class="m-0">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="bi bi-box-arrow-right me-1"></i>Logout
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </nav>

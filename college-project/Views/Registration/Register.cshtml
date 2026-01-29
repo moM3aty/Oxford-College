@@ -1,0 +1,144 @@
+﻿@model college_project.Models.RegistrationViewModel
+
+@{
+    ViewData["Title"] = "Student Registration";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/registration.css" />
+
+<section class="reg-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="reg-card">
+                    <div class="reg-card-header">
+                        <h2>Enrollment Registration</h2>
+                        <p class="text-white-50 mt-2 mb-0">Please fill out the details accurately and upload required documents</p>
+                    </div>
+                    <div class="reg-card-body">
+                        <form asp-action="Register" enctype="multipart/form-data" method="post" id="regForm">
+                            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                            <div class="mb-4">
+                                <label asp-for="FullName" class="form-label-premium"></label>
+                                <input asp-for="FullName" class="form-control-premium w-100" placeholder="Full name as in Passport / ID" />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-4">
+                                <label asp-for="Major" class="form-label-premium"></label>
+                                <select asp-for="Major" class="form-select form-control-premium">
+                                    <option value="">-- Select Major --</option>
+                                    <option value="Training Courses">Training Courses</option>
+                                    <option value="Professional Bachelor">Professional Bachelor's Programs</option>
+                                    <option value="Professional Diploma">Professional Diploma</option>
+                                    <option value="Professional Master">Professional Master Programs</option>
+                                    <option value="Professional Doctorate">Professional Doctorate Programs</option>
+                                    <option value="Other">Other Programs</option>
+                                </select>
+                                <span asp-validation-for="Major" class="text-danger"></span>
+                            </div>
+
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-4">
+                                    <label asp-for="QualificationImage" class="form-label-premium"></label>
+                                    <div class="upload-box" onclick="document.getElementById('QualificationImage').click()">
+                                        <div class="upload-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                        <p class="mb-0 text-muted small" id="qual-text">Click to upload Certificate</p>
+                                        <input asp-for="QualificationImage" type="file" class="d-none" accept="image/*" onchange="updateFileName(this, 'qual-text')" />
+                                    </div>
+                                    <span asp-validation-for="QualificationImage" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4">
+                                    <label asp-for="IdentityImage" class="form-label-premium"></label>
+                                    <div class="upload-box" onclick="document.getElementById('IdentityImage').click()">
+                                        <div class="upload-icon"><i class="fa-solid fa-id-card"></i></div>
+                                        <p class="mb-0 text-muted small" id="id-text">Click to upload ID/Passport</p>
+                                        <input asp-for="IdentityImage" type="file" class="d-none" accept="image/*" onchange="updateFileName(this, 'id-text')" />
+                                    </div>
+                                    <span asp-validation-for="IdentityImage" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4">
+                                    <label asp-for="PersonalPhoto" class="form-label-premium"></label>
+                                    <div class="upload-box" onclick="document.getElementById('PersonalPhoto').click()">
+                                        <div class="upload-icon"><i class="fa-solid fa-user-circle"></i></div>
+                                        <p class="mb-0 text-muted small" id="photo-text">Click to upload Personal Photo</p>
+                                        <input asp-for="PersonalPhoto" type="file" class="d-none" accept="image/*" onchange="updateFileName(this, 'photo-text')" />
+                                    </div>
+                                    <span asp-validation-for="PersonalPhoto" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="charter-title">Transparency Charter & Enrollment Regulations</label>
+                                <div class="charter-box">
+                                    <p class="fw-bold">Introduction:</p>
+                                    <p>As an institution committed to the highest standards of international transparency, the student is required to review and agree to the following regulatory terms as an integral part of the application for training programs offered by the Academy:</p>
+
+                                    <p class="fw-bold">1. Nature of the Program and International Accreditation</p>
+                                    <ul>
+                                        <li>The student acknowledges their complete awareness that the chosen educational program is an "Independent Professional Program" issued by a British entity.</li>
+                                        <li>The student is aware that these programs are designed according to private vocational training standards and do not fall under the framework of UK Higher Education (academic government education), nor are they subject to the degree equivalence system by the Supreme Council of Universities in the Arab Republic of Egypt.</li>
+                                    </ul>
+
+                                    <p class="fw-bold">2. Legal Titles</p>
+                                    <ul>
+                                        <li>The titles granted (such as Professional Master, Professional Doctorate, or Professional Diplomas) are professional training titles that describe the acquired level of knowledge and skills. They do not confer an academic scientific degree or an official university title recognized by government entities or syndicates subject to local university regulation laws.</li>
+                                        <li>The Academy fully disclaims responsibility regarding how this certificate is accepted or evaluated by employment entities (whether government or private) or syndicates, as this is entirely subject to the internal laws and regulations of each entity or country.</li>
+                                    </ul>
+
+                                    <p class="fw-bold">3. Documentation and Credibility</p>
+                                    <ul>
+                                        <li>The Academy is committed to ensuring the validity of the certificate's issuance from the source in Britain as an independent and legal vocational training entity.</li>
+                                        <li>Notarization services (such as the British Foreign Office or Notary Public) are procedures to prove the "legality of the document" in the country of origin, and this does not change the "professional" nature of the program or result in converting it into an academic or university track.</li>
+                                    </ul>
+
+                                    <p class="fw-bold">4. Student Declaration and Consent</p>
+                                    <p>By completing the registration process or clicking "I Agree", this constitutes a final declaration of the following:</p>
+                                    <blockquote class="blockquote border-start ps-3 text-muted" style="font-size: 0.9em;">
+                                        "I, the user/student, declare of my own free will that I have read and understood the nature of the Independent Professional Program explained above. I agree to enroll in it with my certain knowledge that it does not grant a degree affiliated with British Higher Education or other countries, nor does it give the right to claim from the Academy any results related to academic equivalence, syndicate enrollment, or any career paths subject to external entities."
+                                    </blockquote>
+                                </div>
+                                <div class="form-check custom-checkbox">
+                                    <input asp-for="AgreeToCharter" class="form-check-input" type="checkbox" id="charterCheck" onchange="toggleSubmit()">
+                                    <label class="form-check-label fw-bold" for="charterCheck" style="color: var(--primary-navy);">
+                                        I have read the Transparency Charter and agree to its terms.
+                                    </label>
+                                </div>
+                                <span asp-validation-for="AgreeToCharter" class="text-danger d-block mt-2"></span>
+                            </div>
+
+                            <button type="submit" id="submitBtn" class="btn-register-premium" disabled>
+                                <i class="fa-solid fa-paper-plane ms-2"></i> Submit Application
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function updateFileName(input, elementId) {
+            if (input.files && input.files[0]) {
+                document.getElementById(elementId).innerText = input.files[0].name;
+                document.getElementById(elementId).style.color = "#b89d44";
+                document.getElementById(elementId).style.fontWeight = "bold";
+            }
+        }
+
+        function toggleSubmit() {
+            var checkBox = document.getElementById("charterCheck");
+            var btn = document.getElementById("submitBtn");
+            if (checkBox.checked) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+    </script>
+}

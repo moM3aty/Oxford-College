@@ -1,0 +1,83 @@
+﻿@model college_project.Models.StudentRegistration
+
+@{
+    ViewData["Title"] = "Application Details";
+    Layout = "_AdminLayout";
+}
+
+<link rel="stylesheet" href="~/css/registration-print.css" media="print" />
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4 no-print">
+        <h1 class="h3 mb-0 text-gray-800">Student Details: @Model.FullName</h1>
+        <div>
+            <button onclick="window.print()" class="btn btn-secondary me-2">
+                <i class="bi bi-printer me-2"></i>Print / Save PDF
+            </button>
+            <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+        </div>
+    </div>
+
+    <div class="row" id="printableArea">
+        <!-- Student Info -->
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-person-lines-fill me-2"></i>Basic Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <img src="@Model.PersonalPhotoPath" class="rounded-circle img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;" alt="Personal Photo" />
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span class="fw-bold">Reg ID:</span>
+                            <span>#@Model.Id</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold d-block mb-1">Full Name:</span>
+                            <span class="text-primary fs-5">@Model.FullName</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold d-block mb-1">Major:</span>
+                            <span class="badge bg-warning text-dark fs-6">@Model.Major</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span class="fw-bold">Date:</span>
+                            <span>@Model.RegistrationDate.ToString("yyyy-MM-dd hh:mm tt")</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            <span class="small text-muted">Agreed to Transparency Charter</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documents -->
+        <div class="col-lg-8 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="bi bi-files me-2"></i>Attached Documents</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="border rounded p-2 text-center h-100">
+                                <h6 class="fw-bold text-muted mb-3 border-bottom pb-2">Qualification Certificate</h6>
+                                <img src="@Model.QualificationImagePath" class="img-fluid rounded" alt="Qualification" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded p-2 text-center h-100">
+                                <h6 class="fw-bold text-muted mb-3 border-bottom pb-2">Identity / Passport</h6>
+                                <img src="@Model.IdentityImagePath" class="img-fluid rounded" alt="Identity" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

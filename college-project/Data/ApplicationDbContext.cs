@@ -1,6 +1,5 @@
 ﻿using college_project.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace college_project.Data
 {
@@ -12,5 +11,6 @@ namespace college_project.Data
         }
 
         public DbSet<Certificate> Certificates { get; set; }
+        public DbSet<StudentRegistration> StudentRegistrations { get; set; }
     }
 }

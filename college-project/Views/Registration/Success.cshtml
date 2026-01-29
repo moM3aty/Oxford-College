@@ -1,0 +1,47 @@
+﻿@model college_project.Models.StudentRegistration
+
+@{
+    ViewData["Title"] = "Registration Successful";
+    Layout = "_Layout";
+    // Replace with Admin's WhatsApp number (Country code without +)
+    string adminPhone = "201000000000";
+    string msg = $"Hello, I have registered on the website.\nName: {Model.FullName}\nRef ID: {Model.Id}\nMajor: {Model.Major}";
+    string whatsappUrl = $"https://wa.me/{adminPhone}?text={Uri.EscapeDataString(msg)}";
+}
+
+<link rel="stylesheet" href="~/css/registration.css" />
+
+<section class="reg-section d-flex align-items-center justify-content-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="reg-card text-center p-5">
+                    <div class="mb-4">
+                        <i class="fa-regular fa-circle-check" style="font-size: 5rem; color: #28a745;"></i>
+                    </div>
+                    <h2 class="mb-3" style="color: var(--primary-navy);">Application Received!</h2>
+                    <p class="text-muted mb-4 fs-5">
+                        Thank you <strong>@Model.FullName</strong>.<br />
+                        Your data has been saved successfully. We will review your application and contact you soon.
+                    </p>
+
+                    <div class="alert alert-light border mb-4">
+                        <small class="text-muted d-block mb-1">Reference ID</small>
+                        <span class="fs-3 fw-bold" style="color: var(--primary-gold);">#@Model.Id</span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <!-- WhatsApp Button -->
+                        <a href="@whatsappUrl" target="_blank" class="btn btn-success rounded-pill py-2 fs-6 fw-bold">
+                            <i class="fa-brands fa-whatsapp me-2"></i> Send Notification to Admin
+                        </a>
+
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary rounded-pill py-2">
+                            Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
