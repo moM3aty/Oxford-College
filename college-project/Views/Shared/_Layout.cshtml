@@ -43,9 +43,9 @@
             </div>
         </div>
     </nav>
-    <header id="home">
         @if (ViewData["Title"] == "Home Page")
         {
+    <header id="home">
             <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" style="background-image: url('/images/slider1.jpg');">
@@ -81,8 +81,8 @@
                 <div class="info-box box2"><div class="overlay"><i class="fas fa-certificate fa-2x mb-3"></i><h2 class="h5">Earn Credentials</h2><p>Receive accredited recognition.</p></div></div>
                 <div class="info-box box3"><div class="overlay"><i class="fas fa-globe fa-2x mb-3"></i><h2 class="h5">Global Learning</h2><p>Offers classroom and online study programs.</p></div></div>
             </div>
-        }
     </header>
+        }
 
     <main>
         @RenderBody()
