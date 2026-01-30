@@ -70,6 +70,10 @@ namespace college_project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("QualificationImagePath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

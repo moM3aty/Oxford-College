@@ -27,6 +27,12 @@
                             </div>
 
                             <div class="mb-4">
+                                <label asp-for="PhoneNumber" class="form-label-premium"></label>
+                                <input asp-for="PhoneNumber" class="form-control-premium w-100" placeholder="e.g. +44 7xxx xxxxxx" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-4">
                                 <label asp-for="Major" class="form-label-premium"></label>
                                 <select asp-for="Major" class="form-select form-control-premium">
                                     <option value="">-- Select Major --</option>

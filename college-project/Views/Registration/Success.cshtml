@@ -3,9 +3,10 @@
 @{
     ViewData["Title"] = "Registration Successful";
     Layout = "_Layout";
-    // Replace with Admin's WhatsApp number (Country code without +)
-    string adminPhone = "201000000000";
-    string msg = $"Hello, I have registered on the website.\nName: {Model.FullName}\nRef ID: {Model.Id}\nMajor: {Model.Major}";
+
+    // Updated Admin Phone Number
+    string adminPhone = "447355611988";
+    string msg = $"Hello, I have registered on the website.\nName: {Model.FullName}\nPhone: {Model.PhoneNumber}\nRef ID: {Model.Id}\nMajor: {Model.Major}";
     string whatsappUrl = $"https://wa.me/{adminPhone}?text={Uri.EscapeDataString(msg)}";
 }
 
@@ -31,7 +32,6 @@
                     </div>
 
                     <div class="d-grid gap-2">
-                        <!-- WhatsApp Button -->
                         <a href="@whatsappUrl" target="_blank" class="btn btn-success rounded-pill py-2 fs-6 fw-bold">
                             <i class="fa-brands fa-whatsapp me-2"></i> Send Notification to Admin
                         </a>

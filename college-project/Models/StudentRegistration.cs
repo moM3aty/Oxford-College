@@ -12,6 +12,10 @@ namespace college_project.Models
         public string FullName { get; set; }
 
         [Required]
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
         [Display(Name = "Desired Major")]
         public string Major { get; set; }
 

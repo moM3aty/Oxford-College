@@ -9,6 +9,11 @@ namespace college_project.Models
         [Display(Name = "Full Name")]
         public string FullName { get; set; }
 
+        [Required(ErrorMessage = "Please enter your phone number.")]
+        [Display(Name = "Phone Number (with Country Code)")]
+        [RegularExpression(@"^\+?[0-9\s-]{7,15}$", ErrorMessage = "Please enter a valid phone number with country code (e.g., +44 7xxx xxxxxx).")]
+        public string PhoneNumber { get; set; }
+
         [Required(ErrorMessage = "Please select a major.")]
         [Display(Name = "Desired Major")]
         public string Major { get; set; }

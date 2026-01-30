@@ -1,0 +1,310 @@
+﻿/* === GENERAL STYLES (Screen & Print) === */
+:root {
+    --navy: #193750;
+    --gold: #b89d44;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef; /* Darker gray for screen background contrast */
+    margin: 0;
+    padding: 0;
+}
+
+/* The "Paper" Container on Screen */
+.print-wrapper {
+    background: white;
+    width: 210mm; /* Exact A4 Width */
+    min-height: 297mm; /* Exact A4 Height */
+    margin: 40px auto;
+    padding: 15mm; /* Inner padding like real paper margins */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* Deep shadow for premium look */
+    position: relative;
+    box-sizing: border-box; /* Crucial: padding doesn't increase width */
+}
+
+/* --- Header Styling --- */
+.header-table {
+    border-bottom: 3px solid var(--gold);
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.print-logo {
+    height: 90px;
+    width: auto;
+}
+
+.college-name {
+    font-family: 'Times New Roman', serif;
+    color: var(--navy);
+    font-size: 26pt;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.college-slogan {
+    color: #555;
+    font-style: italic;
+    margin: 5px 0 15px 0;
+    font-size: 10pt;
+    font-family: Georgia, serif;
+}
+
+.doc-title-box {
+    background: var(--navy);
+    color: var(--white);
+    display: inline-block;
+    padding: 6px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 12pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    top: 18px; /* Push it down to overlap border */
+    border: 3px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ref-box {
+    text-align: right;
+    margin-bottom: 8px;
+}
+
+.ref-label {
+    display: block;
+    font-size: 8pt;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ref-value {
+    font-size: 14pt;
+    font-weight: bold;
+    color: var(--navy);
+    font-family: Consolas, monospace;
+}
+
+.qr-code {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #ddd;
+    padding: 3px;
+    background: #fff;
+}
+
+/* --- Content Layout --- */
+.content-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 10px;
+}
+
+.info-col {
+    width: 38%;
+    vertical-align: top;
+    padding-right: 15px;
+}
+
+.docs-col {
+    width: 62%;
+    vertical-align: top;
+    padding-left: 15px;
+    border-left: 1px solid #e0e0e0;
+}
+
+/* --- Sections Styling --- */
+.section-box {
+    background: #fff;
+    border: 1px solid #193750;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.section-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-size: 10pt;
+    border-bottom: 1px solid #000;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.section-body {
+    padding: 15px;
+}
+
+/* --- Student Info Styling --- */
+.photo-wrapper {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.student-photo {
+    width: 130px;
+    height: 160px;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 1px #ccc;
+    border-radius: 4px;
+}
+
+.data-table {
+    width: 100%;
+}
+
+    .data-table td {
+        padding: 4px 0;
+        vertical-align: bottom;
+    }
+
+    .data-table .label {
+        font-size: 8pt;
+        color: #777;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding-top: 8px;
+    }
+
+    .data-table .value {
+        font-size: 11pt;
+        font-weight: 600;
+        color: #000;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 2px;
+    }
+
+.highlight {
+    color: var(--navy);
+    background: #f0f4f8;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border-left: 3px solid var(--gold);
+    display: inline-block;
+    width: 100%;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.agreement-box {
+    margin-top: 25px;
+    background: #f9fff9;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 6px;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.check-icon {
+    color: #28a745;
+    font-weight: 900;
+    font-size: 18pt;
+}
+
+/* --- Documents Styling --- */
+.doc-item {
+    margin-bottom: 25px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    page-break-inside: avoid;
+}
+
+.doc-label {
+    font-weight: 700;
+    color: var(--navy);
+    background: #f8f9fa;
+    padding: 8px 12px;
+    text-transform: uppercase;
+    font-size: 9pt;
+    border-bottom: 1px solid #eee;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.doc-img-container {
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+    height: 240px; /* Fixed height for consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doc-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- Footer --- */
+.print-footer {
+    margin-top: 30px;
+    border-top: 2px solid #eee;
+    padding-top: 10px;
+    font-size: 8pt;
+    color: #888;
+}
+
+/* === PRINT SPECIFIC OVERRIDES === */
+@media print {
+    @page {
+        size: A4;
+        margin: 0; /* Remove browser default margins */
+    }
+
+    body {
+        background-color: #fff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Reset the wrapper for print */
+    .print-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10mm !important; /* Set safe print margins here */
+        box-shadow: none !important;
+        border: none !important;
+        min-height: auto !important;
+    }
+
+    /* Hide UI elements */
+    .no-print, header, footer, .navbar, .btn, .back-to-top, .fixed-contact-buttons {
+        display: none !important;
+    }
+
+    /* Adjust borders for print readability */
+    .section-box, .doc-item {
+        border: 1px solid #aaa !important;
+    }
+
+    /* Ensure images print clearly */
+    img {
+        print-color-adjust: exact;
+    }
+}

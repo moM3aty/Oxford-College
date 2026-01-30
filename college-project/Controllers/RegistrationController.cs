@@ -44,6 +44,7 @@ namespace college_project.Controllers
                 var student = new StudentRegistration
                 {
                     FullName = model.FullName,
+                    PhoneNumber = model.PhoneNumber,
                     Major = model.Major,
                     IsTransparencyCharterAgreed = true,
                     RegistrationDate = DateTime.Now
@@ -115,11 +116,11 @@ namespace college_project.Controllers
         {
             var students = await _context.StudentRegistrations.ToListAsync();
             var builder = new StringBuilder();
-            builder.AppendLine("ID,FullName,Major,RegistrationDate,QualificationImage,IdentityImage,PersonalPhoto");
+            builder.AppendLine("ID,FullName,PhoneNumber,Major,RegistrationDate");
 
             foreach (var student in students)
             {
-                builder.AppendLine($"{student.Id},{EscapeCsv(student.FullName)},{EscapeCsv(student.Major)},{student.RegistrationDate},{student.QualificationImagePath},{student.IdentityImagePath},{student.PersonalPhotoPath}");
+                builder.AppendLine($"{student.Id},{EscapeCsv(student.FullName)},{EscapeCsv(student.PhoneNumber)},{EscapeCsv(student.Major)},{student.RegistrationDate}");
             }
 
             return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "Students_List.csv");

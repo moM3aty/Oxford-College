@@ -5,79 +5,141 @@
     Layout = "_AdminLayout";
 }
 
-<link rel="stylesheet" href="~/css/registration-print.css" media="print" />
+<link rel="stylesheet" href="~/css/registration-print.css" media="all" />
 
 <div class="container-fluid">
-    <div class="d-flex justify-content-between align-items-center mb-4 no-print">
-        <h1 class="h3 mb-0 text-gray-800">Student Details: @Model.FullName</h1>
+
+    <!-- Actions Toolbar (Hidden in Print) -->
+    <!-- Centered to match the paper width on screen -->
+    <div class="d-flex justify-content-between align-items-center mb-4 no-print" style="max-width: 210mm; margin: 0 auto;">
+        <h1 class="h3 mb-0 text-gray-800">Student: @Model.FullName</h1>
         <div>
-            <button onclick="window.print()" class="btn btn-secondary me-2">
-                <i class="bi bi-printer me-2"></i>Print / Save PDF
+            <button onclick="window.print()" class="btn btn-dark me-2 shadow-sm">
+                <i class="bi bi-printer-fill me-2"></i>Print / Save PDF
             </button>
-            <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+            <a asp-action="Index" class="btn btn-outline-secondary shadow-sm">Back to List</a>
         </div>
     </div>
 
-    <div class="row" id="printableArea">
-        <!-- Student Info -->
-        <div class="col-lg-4 mb-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0"><i class="bi bi-person-lines-fill me-2"></i>Basic Information</h5>
-                </div>
-                <div class="card-body">
-                    <div class="text-center mb-4">
-                        <img src="@Model.PersonalPhotoPath" class="rounded-circle img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;" alt="Personal Photo" />
+    <!-- Printable Area Wrapper -->
+    <div class="print-wrapper" id="printableArea">
+
+        <!-- 1. Header Section -->
+        <table class="header-table">
+            <tr>
+                <td style="width: 20%; vertical-align: middle;">
+                    <img src="~/images/logo.png" alt="Logo" class="print-logo">
+                </td>
+                <td style="width: 60%; text-align: center; vertical-align: middle;">
+                    <h1 class="college-name">OXFORD COLLEGE</h1>
+                    <p class="college-slogan">Excellence in Education & Professional Training</p>
+                    <div class="doc-title-box">ENROLLMENT APPLICATION FORM</div>
+                </td>
+                <td style="width: 20%; text-align: right; vertical-align: middle;">
+                    <div class="ref-box">
+                        <span class="ref-label">Reference ID</span>
+                        <span class="ref-value">#@Model.Id</span>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span class="fw-bold">Reg ID:</span>
-                            <span>#@Model.Id</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold d-block mb-1">Full Name:</span>
-                            <span class="text-primary fs-5">@Model.FullName</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold d-block mb-1">Major:</span>
-                            <span class="badge bg-warning text-dark fs-6">@Model.Major</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span class="fw-bold">Date:</span>
-                            <span>@Model.RegistrationDate.ToString("yyyy-MM-dd hh:mm tt")</span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="bi bi-check-circle-fill text-success me-2"></i>
-                            <span class="small text-muted">Agreed to Transparency Charter</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=@Model.Id-@Model.FullName" class="qr-code" alt="QR Code">
+                </td>
+            </tr>
+        </table>
+
+        <!-- 2. Main Content Table (Guarantees Side-by-Side Layout) -->
+        <table class="content-table">
+            <tr>
+                <!-- Left Column: Personal Info -->
+                <td class="info-col">
+                    <div class="section-box h-100">
+                        <div class="section-header">APPLICANT PROFILE</div>
+                        <div class="section-body text-center">
+
+                            <!-- Personal Photo -->
+                            <div class="photo-wrapper">
+                                <img src="@Model.PersonalPhotoPath" class="student-photo" alt="Photo" onerror="this.src='https://placehold.co/150x180?text=No+Photo'">
+                            </div>
+
+                            <!-- Data List -->
+                            <table class="data-table text-start">
+                                <tr>
+                                    <td class="label">Full Name</td>
+                                </tr>
+                                <tr>
+                                    <td class="value text-uppercase">@Model.FullName</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="label">Phone Number</td>
+                                </tr>
+                                <tr>
+                                    <td class="value font-monospace">@Model.PhoneNumber</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="label">Major</td>
+                                </tr>
+                                <tr>
+                                    <td class="value highlight">@Model.Major</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="label">Registration Date</td>
+                                </tr>
+                                <tr>
+                                    <td class="value">@Model.RegistrationDate.ToString("yyyy-MM-dd HH:mm")</td>
+                                </tr>
+                            </table>
+
+                            <!-- Agreement Badge -->
+                            <div class="agreement-box">
+                                <span class="check-icon">✓</span>
+                                <div class="text-start">
+                                    <strong>CHARTER SIGNED</strong><br>
+                                    <small class="text-muted">Transparency Policy Agreed</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+
+                <!-- Right Column: Documents -->
+                <td class="docs-col">
+                    <div class="section-box h-100">
+                        <div class="section-header">OFFICIAL ATTACHMENTS</div>
+                        <div class="section-body">
+
+                            <!-- Qualification -->
+                            <div class="doc-item">
+                                <div class="doc-label">Qualification Certificate</div>
+                                <div class="doc-img-container">
+                                    <img src="@Model.QualificationImagePath" class="doc-img" alt="Qualification" onerror="this.src='https://placehold.co/400x200?text=No+Document'">
+                                </div>
+                            </div>
+
+                            <!-- Identity -->
+                            <div class="doc-item mt-4">
+                                <div class="doc-label">Identity Document</div>
+                                <div class="doc-img-container">
+                                    <img src="@Model.IdentityImagePath" class="doc-img" alt="Identity" onerror="this.src='https://placehold.co/400x200?text=No+Document'">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- 3. Footer -->
+        <div class="print-footer">
+            <table class="w-100">
+                <tr>
+                    <td class="text-start">Oxford College - System Report</td>
+                    <td class="text-center">CONFIDENTIAL DOCUMENT</td>
+                    <td class="text-end">Printed: @DateTime.Now.ToString("dd MMM yyyy HH:mm")</td>
+                </tr>
+            </table>
         </div>
 
-        <!-- Documents -->
-        <div class="col-lg-8 mb-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-header bg-dark text-white">
-                    <h5 class="mb-0"><i class="bi bi-files me-2"></i>Attached Documents</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="border rounded p-2 text-center h-100">
-                                <h6 class="fw-bold text-muted mb-3 border-bottom pb-2">Qualification Certificate</h6>
-                                <img src="@Model.QualificationImagePath" class="img-fluid rounded" alt="Qualification" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="border rounded p-2 text-center h-100">
-                                <h6 class="fw-bold text-muted mb-3 border-bottom pb-2">Identity / Passport</h6>
-                                <img src="@Model.IdentityImagePath" class="img-fluid rounded" alt="Identity" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
