@@ -10,7 +10,6 @@
 <div class="container-fluid">
 
     <!-- Actions Toolbar (Hidden in Print) -->
-    <!-- Centered to match the paper width on screen -->
     <div class="d-flex justify-content-between align-items-center mb-4 no-print" style="max-width: 210mm; margin: 0 auto;">
         <h1 class="h3 mb-0 text-gray-800">Student: @Model.FullName</h1>
         <div>
@@ -45,7 +44,7 @@
             </tr>
         </table>
 
-        <!-- 2. Main Content Table (Guarantees Side-by-Side Layout) -->
+        <!-- 2. Main Content Table -->
         <table class="content-table">
             <tr>
                 <!-- Left Column: Personal Info -->
@@ -90,38 +89,43 @@
                                 </tr>
                             </table>
 
-                            <!-- Agreement Badge -->
-                            <div class="agreement-box">
-                                <span class="check-icon">✓</span>
-                                <div class="text-start">
-                                    <strong>CHARTER SIGNED</strong><br>
-                                    <small class="text-muted">Transparency Policy Agreed</small>
-                                </div>
+                            <!-- Simple Agreement Status -->
+                            <div class="mt-4 pt-3 border-top">
+                                <strong class="text-success text-uppercase" style="font-size: 10pt;">
+                                    <i class="bi bi-check-all me-1"></i> Charter Agreed
+                                </strong>
                             </div>
                         </div>
                     </div>
                 </td>
 
-                <!-- Right Column: Documents -->
+                <!-- Right Column: Terms & Conditions (Replacing Images) -->
                 <td class="docs-col">
                     <div class="section-box h-100">
-                        <div class="section-header">OFFICIAL ATTACHMENTS</div>
-                        <div class="section-body">
+                        <div class="section-header">TERMS & CONDITIONS (CHARTER)</div>
+                        <div class="section-body text-justify p-4">
 
-                            <!-- Qualification -->
-                            <div class="doc-item">
-                                <div class="doc-label">Qualification Certificate</div>
-                                <div class="doc-img-container">
-                                    <img src="@Model.QualificationImagePath" class="doc-img" alt="Qualification" onerror="this.src='https://placehold.co/400x200?text=No+Document'">
-                                </div>
+                            <div class="terms-text" style="font-size: 9pt; line-height: 1.5; color: #333; text-align: justify;">
+                                <p class="fw-bold mb-2">Transparency Charter & Enrollment Regulations</p>
+
+                                <p class="mb-2"><strong>1. Nature of the Program:</strong> The student acknowledges their complete awareness that the chosen educational program is an "Independent Professional Program" issued by a British entity. These programs are designed according to private vocational training standards and do not fall under the framework of UK Higher Education.</p>
+
+                                <p class="mb-2"><strong>2. Legal Titles:</strong> The titles granted (Professional Master, Doctorate, etc.) are professional training titles describing acquired skills. They do not confer an academic scientific degree recognized by government entities subject to local university regulation laws.</p>
+
+                                <p class="mb-2"><strong>3. Documentation:</strong> The Academy ensures the validity of the certificate from the British source. Notarization proves document legality but does not convert the program into an academic track.</p>
+
+                                <p class="mb-3"><strong>4. Student Declaration:</strong> "I declare that I have read and understood the nature of the Independent Professional Program. I agree to enroll knowing it does not grant a degree affiliated with British Higher Education, nor gives rights to claim academic equivalence or syndicate enrollment."</p>
                             </div>
 
-                            <!-- Identity -->
-                            <div class="doc-item mt-4">
-                                <div class="doc-label">Identity Document</div>
-                                <div class="doc-img-container">
-                                    <img src="@Model.IdentityImagePath" class="doc-img" alt="Identity" onerror="this.src='https://placehold.co/400x200?text=No+Document'">
+                            <!-- Final Agreement Signature Block -->
+                            <div class="agreement-signature-box mt-4 p-3" style="background-color: #f8f9fa; border: 2px dashed #193750;">
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="check-icon me-2" style="font-size: 20pt; color: #193750;">☑</span>
+                                    <span class="fw-bold text-uppercase" style="font-size: 11pt; color: #193750;">I HAVE READ AND AGREED</span>
                                 </div>
+                                <p class="m-0 text-muted fst-italic" style="font-size: 9pt;">
+                                    By submitting the electronic form on <strong>@Model.RegistrationDate.ToString("dd MMM yyyy")</strong>, the student <strong>@Model.FullName</strong> has legally agreed to the terms above.
+                                </p>
                             </div>
 
                         </div>

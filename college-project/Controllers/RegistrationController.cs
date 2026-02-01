@@ -47,7 +47,8 @@ namespace college_project.Controllers
                     PhoneNumber = model.PhoneNumber,
                     Major = model.Major,
                     IsTransparencyCharterAgreed = true,
-                    RegistrationDate = DateTime.Now
+                    RegistrationDate = DateTime.Now,
+                    IsRead = false // New students are unread by default
                 };
 
                 student.QualificationImagePath = await UploadFile(model.QualificationImage);
@@ -80,8 +81,18 @@ namespace college_project.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
+
             var student = await _context.StudentRegistrations.FirstOrDefaultAsync(m => m.Id == id);
+
             if (student == null) return NotFound();
+
+            // Mark as Read if it wasn't read before
+            if (!student.IsRead)
+            {
+                student.IsRead = true;
+                await _context.SaveChangesAsync();
+            }
+
             return View(student);
         }
 
@@ -116,11 +127,11 @@ namespace college_project.Controllers
         {
             var students = await _context.StudentRegistrations.ToListAsync();
             var builder = new StringBuilder();
-            builder.AppendLine("ID,FullName,PhoneNumber,Major,RegistrationDate");
+            builder.AppendLine("ID,FullName,PhoneNumber,Major,RegistrationDate,IsRead");
 
             foreach (var student in students)
             {
-                builder.AppendLine($"{student.Id},{EscapeCsv(student.FullName)},{EscapeCsv(student.PhoneNumber)},{EscapeCsv(student.Major)},{student.RegistrationDate}");
+                builder.AppendLine($"{student.Id},{EscapeCsv(student.FullName)},{EscapeCsv(student.PhoneNumber)},{EscapeCsv(student.Major)},{student.RegistrationDate},{student.IsRead}");
             }
 
             return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "Students_List.csv");

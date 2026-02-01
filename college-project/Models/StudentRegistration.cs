@@ -32,5 +32,7 @@ namespace college_project.Models
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
 
         public bool IsTransparencyCharterAgreed { get; set; }
+
+        public bool IsRead { get; set; } = false;
     }
 }

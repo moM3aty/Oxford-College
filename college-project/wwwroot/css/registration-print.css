@@ -8,24 +8,22 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e9ecef; /* Darker gray for screen background contrast */
+    background-color: #e9ecef;
     margin: 0;
     padding: 0;
 }
 
-/* The "Paper" Container on Screen */
 .print-wrapper {
     background: white;
-    width: 210mm; /* Exact A4 Width */
-    min-height: 297mm; /* Exact A4 Height */
+    width: 210mm;
+    min-height: 297mm;
     margin: 40px auto;
-    padding: 15mm; /* Inner padding like real paper margins */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* Deep shadow for premium look */
+    padding: 15mm;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     position: relative;
-    box-sizing: border-box; /* Crucial: padding doesn't increase width */
+    box-sizing: border-box;
 }
 
-/* --- Header Styling --- */
 .header-table {
     border-bottom: 3px solid var(--gold);
     margin-bottom: 25px;
@@ -67,7 +65,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
-    top: 18px; /* Push it down to overlap border */
+    top: 18px;
     border: 3px solid #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
@@ -101,7 +99,6 @@ body {
     background: #fff;
 }
 
-/* --- Content Layout --- */
 .content-table {
     width: 100%;
     border-collapse: separate;
@@ -122,7 +119,6 @@ body {
     border-left: 1px solid #e0e0e0;
 }
 
-/* --- Sections Styling --- */
 .section-box {
     background: #fff;
     border: 1px solid #193750;
@@ -149,7 +145,6 @@ body {
     padding: 15px;
 }
 
-/* --- Student Info Styling --- */
 .photo-wrapper {
     margin-bottom: 20px;
     text-align: center;
@@ -201,66 +196,6 @@ body {
     print-color-adjust: exact !important;
 }
 
-.agreement-box {
-    margin-top: 25px;
-    background: #f9fff9;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 6px;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-}
-
-.check-icon {
-    color: #28a745;
-    font-weight: 900;
-    font-size: 18pt;
-}
-
-/* --- Documents Styling --- */
-.doc-item {
-    margin-bottom: 25px;
-    border: 1px solid #eee;
-    border-radius: 6px;
-    overflow: hidden;
-    page-break-inside: avoid;
-}
-
-.doc-label {
-    font-weight: 700;
-    color: var(--navy);
-    background: #f8f9fa;
-    padding: 8px 12px;
-    text-transform: uppercase;
-    font-size: 9pt;
-    border-bottom: 1px solid #eee;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-}
-
-.doc-img-container {
-    background: #fff;
-    padding: 10px;
-    text-align: center;
-    height: 240px; /* Fixed height for consistency */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.doc-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-/* --- Footer --- */
 .print-footer {
     margin-top: 30px;
     border-top: 2px solid #eee;
@@ -269,11 +204,15 @@ body {
     color: #888;
 }
 
-/* === PRINT SPECIFIC OVERRIDES === */
+/* Terms specific style */
+.terms-text p {
+    margin-bottom: 10px;
+}
+
 @media print {
     @page {
         size: A4;
-        margin: 0; /* Remove browser default margins */
+        margin: 0;
     }
 
     body {
@@ -282,29 +221,21 @@ body {
         print-color-adjust: exact !important;
     }
 
-    /* Reset the wrapper for print */
     .print-wrapper {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
-        padding: 10mm !important; /* Set safe print margins here */
+        padding: 10mm !important;
         box-shadow: none !important;
         border: none !important;
         min-height: auto !important;
     }
 
-    /* Hide UI elements */
     .no-print, header, footer, .navbar, .btn, .back-to-top, .fixed-contact-buttons {
         display: none !important;
     }
 
-    /* Adjust borders for print readability */
-    .section-box, .doc-item {
+    .section-box {
         border: 1px solid #aaa !important;
-    }
-
-    /* Ensure images print clearly */
-    img {
-        print-color-adjust: exact;
     }
 }
