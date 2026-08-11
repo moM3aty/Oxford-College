@@ -37,13 +37,11 @@ D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\Microsoft.Wi
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.ClientModel.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.Drawing.Common.dll
-D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.Formats.Asn1.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.Memory.Data.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.Runtime.Caching.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.Security.Permissions.dll
-D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.Text.Json.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\System.Windows.Extensions.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Dev\Oxford-College\college-project\obj\Release\net9.0\PubTmp\Out\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
